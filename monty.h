@@ -35,6 +35,7 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
 
 /* PROTOTYPES */
 void push(stack_t **stack, unsigned int line_number);
@@ -44,7 +45,9 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-int errors(int err, char *str);
+int errors(int err, char *str, int line_num);
+void (*get_func(char *s))(stack_t **, unsigned int);
+
 
 /* MACRO DEFINITIONS */
 #define EMPTY NULL
