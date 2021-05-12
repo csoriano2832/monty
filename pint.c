@@ -7,14 +7,11 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	struct_t *top;
-
 	if (*stack == EMPTY)
 	{
-		printf("L%i: can't pint, stack empty\n", line_number);
+		printf("L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE)
 	}
 
-	top = *stack;
-	print("%i\n", top->n);
+	print("%i\n", (*stack)->n);
 }
