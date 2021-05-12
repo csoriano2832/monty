@@ -14,7 +14,7 @@ void (*get_func(char *s))(stack_t **, unsigned int)
 	int i = 0;
 
 
-	while (func[i].opcode != NULL && *(func[i].opcode) != *s)
+	while (func[i].opcode != NULL && strcmp((func[i].opcode), s) != 0)
 		i++;
 	return (func[i].f);
 }

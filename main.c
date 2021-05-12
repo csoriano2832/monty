@@ -8,19 +8,57 @@ int main (int argc, char *argv[])
 {
 	FILE *file;
 	ssize_t read_content;
-	char content[1000];
+	unsigned int n, line_num = 0, i;
+	char buff[10000], *content[10000], *token, *opcode;
+	stack_t **stack;
 
 	if (argc != 2)
 	{
-		errors(1, NULL);
-		exit(EXIT_FAILURE);
+		errors(1, NULL, 0);
 	}
-
-	if((file = fopen(argv[1], "r")) == NULL)
+	if ((file = fopen(argv[1], "r")) == NULL)
 	{
-		errors(2, argv[1]);
-		exit(EXIT_FAILURE);
+		errors(2, argv[1], 0);
 	}
 
-	while (!(fscanf(file, "  %s", content)
+	while (fgets(buff,10000, file) != NULL)
+	{
+		token = strtok(buff, "\n");
 
+		while (token != NULL)
+		{
+			content[line_num] = strdup(token);
+			line_num++;
+			token = strtok(NULL, buff);
+		}
+	}
+	printf("hi");
+
+	for (i = 0; content[i] != NULL; i++)
+	{
+
+		token = strtok(content[i], " ");
+		while (token != NULL)
+		{
+			opcode = strdup(token);
+			if (get_func(opcode) == NULL)
+			{
+				errors(3, NULL, i + 1);
+			}
+			token = strtok(NULL, content[i]);
+
+			n = atoi(token);
+			if (strcmp(opcode, "push") == 0)
+			{
+				get_func(opcode)(stack, n);
+				break;
+			}
+			else
+			{
+				get_func(opcode)(stack, line_num);
+				break;
+			}
+		}
+	}
+	return(0);
+}
