@@ -1,10 +1,6 @@
 #include "monty.h"
-<<<<<<< Updated upstream
-void push(stack_t **stack, unsigned int line_number);
-=======
 int main(int argc, char *argv[]);
 
->>>>>>> Stashed changes
 /**
  * main - main entry point
  * @argc: number of arguments
@@ -69,8 +65,15 @@ int main(int argc, char *argv[])
 		}
 
 	}
-		free_list(stack);
-		stack = NULL;
-		fclose(file);
+	for(;line_num > 0; line_num--)
+	{
+		free(content[line_num]);
+	}
+	free(content[0]);
+
+	free((char*)opcode);
+	fclose(file);
+	free_list(stack);
+	stack = NULL;
 	return (0);
 }

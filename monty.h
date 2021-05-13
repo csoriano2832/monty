@@ -47,7 +47,7 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 int errors(int err, char *str, int line_num);
 void (*get_func(char *s))(stack_t **, unsigned int);
-
+void free_list(stack_t *head);
 
 /* MACRO DEFINITIONS */
 #define EMPTY NULL
