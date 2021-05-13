@@ -19,7 +19,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	if (elements < 2)
 	{
-		printf("L%u: can't swap, stack too short", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short", line_number);
 		exit(EXIT_FAILURE);
 	}
 
