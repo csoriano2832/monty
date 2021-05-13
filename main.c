@@ -1,10 +1,13 @@
 #include "monty.h"
+void push(stack_t **stack, unsigned int line_number);
 /**
+ * main - main entry point
+ * @argc: number of arguments
+ * @argv: arguments in a string array
  *
- *
- *
+ * Return: 0 on success
  */
-int main (int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *file;
 	unsigned int n, line_num = 0, i;
@@ -15,11 +18,15 @@ int main (int argc, char *argv[])
 	{
 		errors(1, NULL, 0);
 	}
-	if ((file = fopen(argv[1], "r")) == NULL)
+
+	file = fopen(argv[1], "r");
+
+	if (file == NULL)
 	{
 		errors(2, argv[1], 0);
 	}
-	while (fgets(buff,10000, file) != NULL)
+
+	while (fgets(buff, 10000, file) != NULL)
 	{
 		token = strtok(buff, "\n");
 
@@ -57,7 +64,7 @@ int main (int argc, char *argv[])
 			}
 			break;
 		}
-		
+
 	}
-	return(0);
+	return (0);
 }
