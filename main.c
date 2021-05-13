@@ -32,7 +32,6 @@ int main (int argc, char *argv[])
 			token = strtok(NULL, buff);
 		}
 	}
-	printf("hi");
 
 	for (i = 0; content[i] != NULL; i++)
 	{
@@ -44,6 +43,7 @@ int main (int argc, char *argv[])
 			if (get_func(opcode) == NULL)
 			{
 				errors(3, NULL, i + 1);
+				exit(EXIT_FAILURE);
 			}
 			token = strtok(NULL, content[i]);
 
@@ -58,7 +58,7 @@ int main (int argc, char *argv[])
 				get_func(opcode)(stack, line_num);
 				break;
 			}
-		}
+		break;}
 	}
 	return(0);
 }
