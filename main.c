@@ -66,5 +66,8 @@ int main(int argc, char *argv[])
 		}
 
 	}
+		free_list(stack);
+		stack = NULL;
+		fclose(file);
 	return (0);
 }
