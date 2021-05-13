@@ -13,7 +13,7 @@ void swap(stack_t **stack, unsigned int line_number)
 
 	while (tmp != NULL)
 	{
-		tmp = tmp->prev;
+		tmp = tmp->next;
 		elements++;
 	}
 
@@ -24,6 +24,6 @@ void swap(stack_t **stack, unsigned int line_number)
 	}
 
 	data = (*stack)->n;
-	(*stack)->n = (*stack)->prev->n;
-	(*stack)->prev->n = data;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = data;
 }

@@ -12,7 +12,7 @@ void add(stack_t **stack, unsigned int line_number)
 
 	while (tmp != NULL)
 	{
-		tmp = tmp->prev;
+		tmp = tmp->next;
 		elements++;
 	}
 
@@ -23,8 +23,8 @@ void add(stack_t **stack, unsigned int line_number)
 	}
 
 	top = *stack;
-	(*stack) = (*stack)->prev;
-	(*stack)->next = NULL;
+	(*stack) = (*stack)->next;
+	(*stack)->prev = NULL;
 	
 	(*stack)->n += top->n;
 	
