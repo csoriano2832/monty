@@ -1,5 +1,10 @@
 #include "monty.h"
+<<<<<<< Updated upstream
 void push(stack_t **stack, unsigned int line_number);
+=======
+int main(int argc, char *argv[]);
+
+>>>>>>> Stashed changes
 /**
  * main - main entry point
  * @argc: number of arguments
@@ -18,14 +23,12 @@ int main(int argc, char *argv[])
 	{
 		errors(1, NULL, 0);
 	}
-
 	file = fopen(argv[1], "r");
 
-	if (file == NULL)
+		if (file == NULL)
 	{
 		errors(2, argv[1], 0);
 	}
-
 	while (fgets(buff, 10000, file) != NULL)
 	{
 		token = strtok(buff, "\n");

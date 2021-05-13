@@ -1,7 +1,8 @@
 #include "monty.h"
 #define UNSUSED(x) (void)(x)
 /**
- * pall - prints all the values on the stack, starting from top of the stack
+ * pall - prints all the values on the stack,
+ * starting from the top of the stack
  * @stack: a doubly linked list representation of a stack
  * @line_number: line number currently being read from file
  */
