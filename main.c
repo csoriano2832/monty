@@ -7,10 +7,9 @@
 int main (int argc, char *argv[])
 {
 	FILE *file;
-	ssize_t read_content;
 	unsigned int n, line_num = 0, i;
 	char buff[10000], *content[10000], *token, *opcode;
-	stack_t **stack;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -20,7 +19,6 @@ int main (int argc, char *argv[])
 	{
 		errors(2, argv[1], 0);
 	}
-
 	while (fgets(buff,10000, file) != NULL)
 	{
 		token = strtok(buff, "\n");
@@ -45,20 +43,21 @@ int main (int argc, char *argv[])
 				errors(3, NULL, i + 1);
 				exit(EXIT_FAILURE);
 			}
-			token = strtok(NULL, content[i]);
-
-			n = atoi(token);
 			if (strcmp(opcode, "push") == 0)
 			{
-				get_func(opcode)(stack, n);
+				token = strtok(NULL, content[i]);
+				n = atoi(token);
+				get_func(opcode)(&stack, n);
 				break;
 			}
 			else
 			{
-				get_func(opcode)(stack, line_num);
+				get_func(opcode)(&stack, line_num);
 				break;
 			}
-		break;}
+			break;
+		}
+		
 	}
 	return(0);
 }

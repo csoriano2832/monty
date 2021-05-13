@@ -9,7 +9,7 @@ void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
 
-	if (*stack == EMPTY)
+	if (*stack == NULL)
 	{
 		return;
 	}
@@ -18,6 +18,6 @@ void pall(stack_t **stack, unsigned int line_number)
 	while (tmp != NULL)
 	{
 		printf("%i\n", tmp->n);
-		tmp = tmp->prev;
+		tmp = tmp->next;
 	}
 }
