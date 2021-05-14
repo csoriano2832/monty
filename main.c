@@ -44,11 +44,6 @@ int main(int argc, char *argv[])
 		while (token != NULL)
 		{
 			opcode = strdup(token);
-			if (get_func(opcode) == NULL)
-			{
-				errors(3, NULL, i + 1);
-				exit(EXIT_FAILURE);
-			}
 			if (strcmp(opcode, "push") == 0)
 			{
 				token = strtok(NULL, content[i]);
@@ -58,6 +53,11 @@ int main(int argc, char *argv[])
 			}
 			else
 			{
+				if (get_func(opcode) == NULL)
+				{
+					errors(3, NULL, i + 1);
+					exit(EXIT_FAILURE);
+				}
 				get_func(opcode)(&stack, line_num);
 				break;
 			}
