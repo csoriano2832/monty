@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 				token = strtok(NULL, content[i]);
 				n = atoi(token);
 				if (n == 0)
-					errors(4,NULL, i + 1);
+					errors(4, NULL, i + 1);
 				get_func(opcode)(&stack, n);
 				break;
 			}
@@ -67,13 +67,13 @@ int main(int argc, char *argv[])
 		}
 
 	}
-	for(;line_num > 0; line_num--)
+	for (; line_num > 0; line_num--)
 	{
 		free(content[line_num]);
 	}
 	free(content[0]);
 
-	free((char*)opcode);
+	free(opcode);
 	fclose(file);
 	free_list(stack);
 	stack = NULL;
