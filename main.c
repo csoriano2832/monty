@@ -57,7 +57,7 @@ int main(int argc, char *argv[])
 			{
 				if (get_func(opcode) == NULL)
 				{
-					errors(3, NULL, i + 1);
+					errors(3, opcode, i + 1);
 					exit(EXIT_FAILURE);
 				}
 				get_func(opcode)(&stack, line_num);

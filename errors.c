@@ -20,7 +20,7 @@ int errors(int err, char *str, int line_num)
 			exit(EXIT_FAILURE);
 			break;
 		case 3:
-			fprintf(stderr, "L%i: unknown instruction\n", line_num);
+			fprintf(stderr, "L%i: unknown instruction %s\n", line_num, str);
 			exit(EXIT_FAILURE);
 			break;
 		case 4:
