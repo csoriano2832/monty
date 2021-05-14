@@ -48,6 +48,8 @@ int main(int argc, char *argv[])
 			{
 				token = strtok(NULL, content[i]);
 				n = atoi(token);
+				if (n == 0)
+					errors(4,NULL, i + 1);
 				get_func(opcode)(&stack, n);
 				break;
 			}
