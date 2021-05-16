@@ -14,6 +14,10 @@ void (*get_func(char *s))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
+		{"sub", sub},
+		{"mul", mul},
+		{"div", divide},
+		{"mod", mod},
 		{NULL, NULL}
 	 };
 	int i = 0;
