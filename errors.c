@@ -12,7 +12,7 @@ int errors(int err, char *str, int line_num)
 	switch (err)
 	{
 		case 1:
-			write(2, "USAGE: monty file\n", 17);
+			write(2, "USAGE: monty file\n", 18);
 			exit(EXIT_FAILURE);
 			break;
 		case 2:
