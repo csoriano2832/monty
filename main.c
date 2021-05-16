@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
 					errors(4, NULL, i + 1);
 				get_func(opcode)(&stack, n);
 			}
-			else if (strcmp(opcode, "#") == 0)
+			else if (opcode[0] == '#')
 			{
 				nop(&stack, line_num);
 			}
